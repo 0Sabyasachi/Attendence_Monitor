@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>face match</title>
+        <style>
+            .body{
+                background-color: rgba(255, 255, 255, 0.95);
+                background-image: url('section1back.jpg');
+                display: block;
+                background-size: 100%;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                text-align: center;
+            }
+            #webcam{
+                margin:10px auto 0px auto;
+                border-radius: 300px;
+                overflow: hidden;
+                border: 1px solid rgba(0, 0, 0, 0.429);
+                box-shadow: 1px 1px 30px 10px rgba(0, 0, 0, 0.274);
+                background-color: transparent;
+            }
+            #scan-btn{
+                width: 30%;
+                padding: 15px 0px;
+                background-color: rgb(0, 0, 0);
+                border: none;
+
+                margin: 10px 0px 0px 0px;
+                border-radius: 50px;
+                color: white;
+                transition: 0.3s ease;
+                font-size: 30px;
+            }
+            #scan-btn:hover{
+                background-color: rgb(66, 1, 1);
+                transition: 0.3s ease;
+                cursor: pointer;
+            }
+            #image1,#image2
+            {
+                display: none;
+            }
+            
+        </style>
+        
+
+    </head>
+    <body class="body">
+        <h1>WEBCAM</h1>
+        <div id="webcam">
+
+        </div>
+        <input id="scan-btn" type="button" value="CHECK" onclick="return scan()">
+        <br>
+        <img id="image1" src="" width="100px">
+
+        <?php
+        
+        $regdno=$_POST["regdno"];
+        $conn = new mysqli('localhost', 'root', '', 'mydatabase');
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        else
+        {
+            $query = "select PHOTO from signupdata where $regdno=ADDRESS";
+            $result = mysqli_query($conn, $query);
+            while($data = mysqli_fetch_array($result))
+            {
+                $img = $data['PHOTO'];
+                ?> 
+                <img src="<?php echo $img ; ?>" width="100px" id="image2">
+                <?php
+            }
+        }
+
+        ?>
+
+        
+    </body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js" integrity="sha512-dQIiHSl2hr3NWKKLycPndtpbh5iaHLo6MwrXm7F0FM5e+kL2U16oE9uIwPHUl6fQBeCthiEuV/rzP3MiAB8Vfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="js/face-api.min.js"></script>
+        <script src="facematch.js"></script>
+    
+</html>

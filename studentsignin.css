@@ -1,0 +1,119 @@
+*
+{
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.container
+{
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+}
+#div1
+{
+    width: 70%;
+    height: 100vh;
+    background-image: url('signinback.jpg') !important;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    background-color:#26203A;
+}
+form
+{
+    width: 35%;
+    height: 85vh;
+    position: absolute;
+    background-color: white;
+    top: 7%;
+    right: 10%;
+    box-shadow: 1px 1px 30px 1px #00000097;
+    text-align: center;
+    z-index: 999;
+    /* padding: 60px; */
+}
+#div3{
+    height:100vh;
+    width: 30%;
+    background-color:#26203A;
+}
+form>h1{
+    color:#6A3144 ;
+    margin: 60px 0px 70px 0px;
+}
+form>div
+{
+    /* border: 1px solid rgb(255, 0, 0); */
+    margin: 0px 80px;
+}
+form>div>div
+{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+#username
+{
+    width: 100%;
+    border: none;
+    /* padding: 0px 20px; */
+    font-size: 18px;
+    margin: 0px 20px;
+}
+#username::placeholder,#password::placeholder
+{
+    color: rgba(0, 0, 0, 0.356);
+}
+#password
+{
+    width: 80%;
+    border: none;
+    /* padding: 0px 20px; */
+    font-size: 18px;
+    margin: 0px 20px;
+}
+#username:focus,#password:focus{
+    border: none;
+    outline: none;
+    border-bottom: 2px solid  rgba(255, 0, 0, 0.107) ;
+    transition: 0.3s ease;
+}
+form>div>div>a{
+    text-decoration: none;
+    color: red;
+    font-weight: 500;
+    font-size: 16px;
+}
+form>div>div>i{
+    font-size: 25px;
+}
+#submitbtn
+{
+    background-color: #6A3144;
+    border: none;
+    margin: 60px 0px 40px 0px;
+    padding: 15px 60px;
+    color: white;
+    border-radius: 50px;
+    background: rgb(124,0,77);
+    background: linear-gradient(90deg, rgba(124,0,77,1) 0%, rgba(62,0,40,1) 73%, rgba(57,0,40,1) 100%);
+}
+#submitbtn:hover
+{
+    cursor: pointer;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.367);
+}
+#signupdiv>p{
+    color: rgba(0, 0, 0, 0.604);
+    font-size: 15px;
+}
+#signupdiv>a{
+    color: #6C0044;
+    padding: 0px 10px;
+    font-size: 18px;
+}

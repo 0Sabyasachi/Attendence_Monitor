@@ -1,0 +1,46 @@
+
+<html>
+    <head>
+
+    </head>
+    <body onload="load()">
+
+    
+        <form id="myform" action="markattendence.php" method="post">
+            <input type="text" name="regdno" id="regdno" value="0">
+            <input type="text" name="date" id="date" value="0">
+            <input type="text" name="month" id="month" value="0">
+            <input type="text" name="status" id="status" value="0">
+            <!-- <input type="submit" value="submit" name="submit"> -->
+        </form>
+
+        
+    </body>
+    <script>
+
+        function load()
+        {
+            const d = new Date();
+            const monthinwords = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+            var regdno = document.querySelector("#regdno");
+            var date = document.querySelector("#date");
+            var month = document.querySelector("#month");
+            var status = document.querySelector("#status");
+            const myForm = document.getElementById('myform');
+
+            regdno.value=(localStorage.getItem("regdno"));
+            date.value=d.getDate();
+            month.value=monthinwords[d.getMonth()];
+            status.value="Present"; 
+
+            myForm.submit();
+
+        }
+
+    </script>
+
+</html>
+
+
+
+

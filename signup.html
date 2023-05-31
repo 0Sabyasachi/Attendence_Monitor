@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Sign up</title>
+        <link rel="stylesheet" href="signup.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <form action="signup.php" method="post">
+            <div>
+            <div id="text">
+                <div id="input-text"><i class="fa-solid fa-user" style="color: #3e18ffba;"></i><input type="text" name="FIRSTNAME" id="firstname" placeholder="First Name"><input type="text" name="LASTNAME" id="lastname" placeholder="Last Name"></div>
+                <div><i class="fa-solid fa-envelope" style="color: #3e18ffba;"></i><input type="email" name="EMAIL" id="email" placeholder="Email"></div>
+                <div><i class="fa-solid fa-fingerprint" style="color: #3e18ffba;"></i><input type="text" name="ADDRESS" id="address" placeholder="Regd No./Empoloyee Id"></div><!-- address=regd number -->
+                <div><i class="fa-solid fa-calendar-days" style="color: #3e18ffba;"></i><input type="text" name="DOB" id="dob" placeholder="Date Of Birth" onfocus="(this.type = 'date')"></div>
+                <div>
+                    <i class="fa-solid fa-venus-mars" style="color: #3e18ffba;"></i>
+                    <select name="GENDER" id="gender">
+                        <option value="">Gender</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                </div>
+                <div><i class="fa-solid fa-phone" style="color: #3e18ffba;"></i><input type="tel" name="MOBILE" id="phone" placeholder="Mobile Number"></div>
+                <div>
+                    <i class="fa-solid fa-graduation-cap" style="color: #3e18ffba;"></i>
+                    <select name="INSTITUTE" id="institute">
+                        <option value="">Institute Name</option>
+                        <option value="Gandhi Engineering College">GANDHI ENGINEERING COLLEGE</option>
+                        <option value="Other" disabled>OTHER</option>
+                    </select>
+                </div>
+                <div>
+                    <i class="fa-solid fa-address-card" style="color: #3e18ffba;"></i>
+                    <select name="IDENTITY" id="usertype">
+                        <option value="">Identity</option>
+                        <option value="T">TEACHER</option>
+                        <option value="S">STUDENT</option>
+                    </select>
+                </div>
+                <div id="input-text"><i class="fa-solid fa-key" style="color: #3e18ffba;"></i><input type="password" name="PASSWORD" id="password" placeholder="Password"><input type="password" name="CPASSWORD" id="cpassword" placeholder="Re-type Password"></div>
+                <input type="hidden" value="" name="image" id="imageURL"><!-- ****** -->
+            </div>
+            <div id="img">
+                <div id="ask-input"><p>Uplaod a passport size Photo</p><input type="file"  id="fileInput" onchange="loadFile(event)"></div>
+                <h1 id="preview"><img src="" width="300px" height="350px" id="prev-image"><br><a href="#" id="remove" onclick="remove()">REMOVE</a></h1>
+            </div>
+            </div>
+            <div id="btn-div"><input type="submit" value="SUBMIT" name="submit" id="submit-btn" onclick="return validateForm()"></div>
+        </form>
+        <script src="hey.js"></script>
+        <script>
+            const fileInput=document.getElementById('fileInput');
+            var imageURL=document.getElementById('imageURL');
+            // console.log(fileInput);
+
+            fileInput.addEventListener("change", e => 
+            {
+                const file=fileInput.files[0];
+                const reader = new FileReader();
+
+                reader.addEventListener("load", e => 
+                {
+                    imageURL.value=reader.result;
+                });
+
+                reader.readAsDataURL((file));
+            });
+        </script>
+    </body>
+</html>
